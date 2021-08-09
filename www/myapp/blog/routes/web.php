@@ -13,7 +13,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+
+
+    return Cache::get('key');
+
+
 });
 
 Route::get("/foor",function(){
@@ -55,3 +60,7 @@ Route::get("getpara/{id?}",function($id=1){
 });
 
 Route::get('testinput','User\UserController@testinput');
+
+
+
+
