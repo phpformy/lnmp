@@ -50,13 +50,13 @@ class UserController extends Controller
     public function jugg(){
 
 
-        /*$res=DB::table('User')->where('uid',1)->orwhere(function($query){
+        $res=DB::table('User')->where('uid',1)->orwhere(function($query){
 
             $query->whereDate("CreateTime",'<',"2016-01-01")->whereTime("CreateTime","15:00");
 
         })->get();
 
-        var_dump($res); */
+        var_dump($res);
 
 
         $user=User::FindorFail(2183);
