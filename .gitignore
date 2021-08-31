@@ -1,4 +1,4 @@
 /docker/data/
-/docker/files
-/docker/log
-/www
+/docker/files/
+/docker/log/
+/www/

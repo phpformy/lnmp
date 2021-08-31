@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redis;
 use Unirest\Response;
 use App\Models\User;
+
+use App;
+use App\Facades\TestClass;
 
 use Illuminate\Support\Facades\DB;
 
@@ -49,8 +53,11 @@ class UserController extends Controller
 
     public function jugg(){
 
+       $redis=Redis::get('Asker');
+        dd($redis);
 
-        $res=DB::table('User')->where('uid',1)->orwhere(function($query){
+        dd(Redis::connection('default'));
+       /* $res=DB::table('User')->where('uid',1)->orwhere(function($query){
 
             $query->whereDate("CreateTime",'<',"2016-01-01")->whereTime("CreateTime","15:00");
 
@@ -61,7 +68,7 @@ class UserController extends Controller
 
         $user=User::FindorFail(2183);
 
-        return $user;
+        return $user; */
 
 
     }
@@ -69,8 +76,8 @@ class UserController extends Controller
     public function testinput(){
 
 
-        //return request()->input();
-        return view('welcome');
+        $result=TestClass::callMe('TestController');
+        dump($result);
 
     }
 
